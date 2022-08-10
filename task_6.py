@@ -54,7 +54,7 @@ def main():
     btn_save.pack(pady=10, padx=5)
 
     txt_entry = tk.Text(
-        window,
+        window
     )
     txt_entry.grid(row=0, column=1, sticky='nsew')
 
