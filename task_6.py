@@ -40,14 +40,16 @@ def main():
     btn_open = tk.Button(
         frm_forbtns,
         text='Open...',
-        command=open_file
+        command=open_file,
+        bg='BurlyWood'
     )
     btn_open.pack(pady=10, padx=5)
 
     btn_save = tk.Button(
         frm_forbtns,
         text='Save as',
-        command=save_file
+        command=save_file,
+        bg='BurlyWood'
     )
     btn_save.pack(pady=10, padx=5)
 
