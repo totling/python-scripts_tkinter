@@ -1,4 +1,6 @@
 import tkinter as tk
+from os import path
+from tkinter import messagebox as mbox
 
 
 def main():
@@ -54,9 +56,13 @@ def main():
     def delete_todo():
         def yes():
             i = int(ent_todo.get())-1
-            todo_list[i].destroy()
-            todo_list.pop(i)
-            window1.destroy()
+            try:
+                todo_list[i].destroy()
+                todo_list.pop(i)
+            except IndexError:
+                mbox.showerror('Ошибка', 'Задачи с таким номером не существует')
+            finally:
+                window1.destroy()
 
         window1 = tk.Tk()
         window1.title('Введите номер для удаления(с 0)')
@@ -123,7 +129,13 @@ def main():
     )
     frm_todo.grid(row=1, column=0, sticky='nsew')
 
-    with open('data.txt', 'r') as file:
+    window.geometry('350x400')
+
+    if not path.exists('data.txt'):
+        file = open('data.txt', 'w')
+        file.close()
+
+    with open('data.txt') as file:
         for i in file.readlines():
             lbl_todo = tk.Label(
                 frm_todo,
