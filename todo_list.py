@@ -16,6 +16,7 @@ def main():
             for i in range(len(todo_list)):
                 text = todo_list[i]['text']
                 file.write(text)
+                file.write('\n')
         window.destroy()
 
     def create_todo():
